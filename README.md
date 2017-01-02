@@ -9,6 +9,20 @@
     lang_frequence.py book.txt
 ```
 
-# Project Goals
+### Пример вывода программы
+```
+Слово " the " повторяется  416  раз
+Слово " I " повторяется  266  раз
+Слово " and " повторяется  238  раз
+Слово " a " повторяется  226  раз
+Слово " to " повторяется  205  раз
+Слово " that " повторяется  191  раз
+Слово " of " повторяется  190  раз
+Слово " was " повторяется  154  раз
+Слово " in " повторяется  129  раз
+Слово " it " повторяется  128  раз
+```
+
+## Project Goals
 
 The code is written for educational purposes. Training course for web-developers - [DEVMAN.org](https://devman.org)
