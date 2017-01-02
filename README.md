@@ -1,6 +1,15 @@
 # Frequency Analysis of Words
 
-[TODO. There will be project description]
+## Программа для частотного анализа текста
+
+## Использование
+
+Запустите файл lang_frequence.py , передав ему имя файла с текстом в качестве параметра
+
+### Пример использования
+```
+    lang_frequence.py book.txt
+```
 
 # Project Goals
 
