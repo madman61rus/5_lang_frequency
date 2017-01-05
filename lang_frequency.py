@@ -1,39 +1,44 @@
 import sys
 import os
 import re
+import argparse
+import collections
 
 def load_data(filepath):
-    result_dict = {}
-
+    '''Функция загружает текст из файла'''
     if not os.path.exists(filepath):
         return None
     with open(filepath, 'r') as data_file:
-        for line in data_file:
-            tmp_line = (re.sub(r'[^\w]',' ',line)).split()
-            for word in tmp_line:
-                if word in result_dict:
-                    result_dict[word] += 1
-                else:
-                    result_dict[word] = 1
-        return result_dict
+        text = data_file.read()
+
+        return text
+
+def handling_text(text):
+    '''Функция разбивает текст на список слов'''
+
+    return (re.sub(r'[^\w]',' ',text)).split()
 
 
 def get_most_frequent_words(text):
-    result = [(x[0],x[1]) for x in sorted(text.items() , key = lambda x : x[1], reverse = True)][:10]
-    return (result)
+    '''Функция вычисляет 10 самых часто используемых слов'''
+
+    collection = collections.Counter()
+    for word in text:
+        collection[word] += 1
+    return collection.most_common(10)
 
 if __name__ == '__main__':
 
-    if (sys.argv[1]):
-        words = load_data(sys.argv[1])
-    else:
-        print('''Укажите, пожалуйста, имя файла с данными.
-                    Пример:
-                        lang_frequency.py book.txt''')
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-f", "--file", help="file to work with")
+    args = parser.parse_args()
+
+    text = load_data(args.file)
+    words = handling_text(text)
 
     most_frequent_words = get_most_frequent_words(words)
 
-    for word in most_frequent_words:
-        print('Слово "', word[0],'" повторяется ', word[1], ' раз')
+    for word,times in most_frequent_words:
+        print('Слово "', word,'" повторяется ', times , ' раз')
 
 
