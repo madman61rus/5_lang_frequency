@@ -6,7 +6,7 @@
 
 ### Пример использования
 ```
-    lang_frequence.py book.txt
+    lang_frequence.py -f book.txt
 ```
 
 ### Пример вывода программы
