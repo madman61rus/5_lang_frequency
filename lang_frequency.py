@@ -19,13 +19,10 @@ def handling_text(text):
     return (re.sub(r'[^\w]',' ',text)).split()
 
 
-def get_most_frequent_words(text):
+def get_most_frequent_words(text,numbers_of_words=10):
     '''Функция вычисляет 10 самых часто используемых слов'''
 
-    collection = collections.Counter()
-    for word in text:
-        collection[word] += 1
-    return collection.most_common(10)
+    return collections.Counter(text).most_common(numbers_of_words)
 
 if __name__ == '__main__':
 
